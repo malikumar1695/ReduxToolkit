@@ -44,3 +44,21 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+//////////////////// CSS modules adding criteria ///////////////////
+- command:  npm run eject
+then add modules in : config > webpack.config.js
+
+ test: cssRegex,
+              exclude: cssModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                modules : {
+localIdentName: '[name]__[local]__[hash:base64:5]'
+                },
+                sourceMap: isEnvProduction
+                  ? shouldUseSourceMap
+                  : isEnvDevelopment,
+              }),
